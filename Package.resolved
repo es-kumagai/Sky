@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Ocean",
+        "repositoryURL": "https://github.com/es-kumagai/Ocean",
+        "state": {
+          "branch": "master",
+          "revision": "68e0637f1841d6433734157c01a5d8bc745d3821",
+          "version": null
+        }
+      },
+      {
+        "package": "Swim",
+        "repositoryURL": "https://github.com/es-kumagai/Swim",
+        "state": {
+          "branch": "master",
+          "revision": "20e70472933c0623205b15b81365970445861eea",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
