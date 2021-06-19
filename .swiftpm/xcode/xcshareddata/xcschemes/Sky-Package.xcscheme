@@ -62,6 +62,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Sky-AppKit"
+               BuildableName = "Sky-AppKit"
+               BlueprintName = "Sky-AppKit"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -87,6 +101,16 @@
                BlueprintIdentifier = "Sky_AppKitTests"
                BuildableName = "Sky_AppKitTests"
                BlueprintName = "Sky_AppKitTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Sky-AppKitTests"
+               BuildableName = "Sky-AppKitTests"
+               BlueprintName = "Sky-AppKitTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>

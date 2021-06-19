@@ -15,9 +15,9 @@ let package = Package(
             type: .dynamic,
             targets: ["Sky"]),
         .library(
-            name: "Sky_AppKit",
+            name: "Sky-AppKit",
             type: .dynamic,
-            targets: ["Sky_AppKit"]),
+            targets: ["Sky-AppKit"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -28,16 +28,16 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Sky",
-            dependencies: ["Sky_AppKit"]),
+            dependencies: ["Sky-AppKit"]),
         .target(
-            name: "Sky_AppKit",
+            name: "Sky-AppKit",
             dependencies: ["Ocean"]),
         .testTarget(
             name: "SkyTests",
             dependencies: ["Sky"]),
         .testTarget(
-            name: "Sky_AppKitTests",
-            dependencies: ["Sky_AppKit"]),
+            name: "Sky-AppKitTests",
+            dependencies: ["Sky-AppKit"]),
     ],
     swiftLanguageVersions: [.v5]
 )
