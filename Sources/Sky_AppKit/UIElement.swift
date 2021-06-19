@@ -8,6 +8,7 @@
 import Foundation
 import ApplicationServices
 
+/// [Sky] The AXUIElement wrapper class.
 public final class UIElement {
     
     public let rawElement: AXUIElement
