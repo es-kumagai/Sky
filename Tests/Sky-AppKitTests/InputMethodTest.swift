@@ -196,14 +196,18 @@ final class InputMethodTests: XCTestCase {
             
             if inputSource.isSelected {
                 
+                XCTAssertEqual(inputSource, currentInputSource)
                 XCTAssertEqual(inputSource.id, currentInputSource.id)
                 XCTAssertEqual(inputSource.localizedName, currentInputSource.localizedName)
+                XCTAssertEqual(inputSource.hashValue, currentInputSource.hashValue)
             }
             else {
                 
+                XCTAssertNotEqual(inputSource, currentInputSource)
                 XCTAssertNotEqual(inputSource.id, currentInputSource.id)
                 XCTAssertNotEqual(inputSource.localizedName, currentInputSource.localizedName)
-                
+                XCTAssertNotEqual(inputSource.hashValue, currentInputSource.hashValue)
+
                 let selectionSucceeded = inputMethod.select(inputSource: inputSource)
                 let currentInputSourceAfterSelection = inputMethod.currentInputSource
 
@@ -211,15 +215,19 @@ final class InputMethodTests: XCTestCase {
 
                     XCTAssertTrue(selectionSucceeded)
 
+                    XCTAssertEqual(inputSource, currentInputSourceAfterSelection)
                     XCTAssertEqual(inputSource.id, currentInputSourceAfterSelection.id)
                     XCTAssertEqual(inputSource.localizedName, currentInputSourceAfterSelection.localizedName)
+                    XCTAssertEqual(inputSource.hashValue, currentInputSourceAfterSelection.hashValue)
                 }
                 else {
                     
                     XCTAssertFalse(selectionSucceeded)
 
+                    XCTAssertNotEqual(inputSource, currentInputSourceAfterSelection)
                     XCTAssertNotEqual(inputSource.id, currentInputSourceAfterSelection.id)
                     XCTAssertNotEqual(inputSource.localizedName, currentInputSourceAfterSelection.localizedName)
+                    XCTAssertNotEqual(inputSource.hashValue, currentInputSourceAfterSelection.hashValue)
                 }
             }
             
