@@ -9,6 +9,10 @@ import Carbon
 
 open class InputMethod {
     
+    public init() {
+        
+    }
+    
     open var inputSources: Array<InputSource> {
         
         findInputSources(withProperties: nil, includeAllInstalled: false)
