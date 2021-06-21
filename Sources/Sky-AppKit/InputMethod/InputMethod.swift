@@ -9,7 +9,7 @@ import Carbon
 
 open class InputMethod {
     
-    open func inputSources() -> Array<InputSource> {
+    open var inputSources: Array<InputSource> {
         
         findInputSources(withProperties: nil, includeAllInstalled: false)
     }
