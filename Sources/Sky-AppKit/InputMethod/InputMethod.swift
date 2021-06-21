@@ -9,23 +9,28 @@ import Carbon
 
 open class InputMethod {
     
-    public func inputSources(includeAllInstalled: Bool = false) -> Array<InputSource> {
+    open func inputSources() -> Array<InputSource> {
         
-        inputSources(withProperties: nil, includeAllInstalled: includeAllInstalled)
+        findInputSources(withProperties: nil, includeAllInstalled: false)
+    }
+    
+    public func findInputSources(includeAllInstalled: Bool) -> Array<InputSource> {
+        
+        findInputSources(withProperties: nil, includeAllInstalled: includeAllInstalled)
     }
 
-    public func inputSources(havingInputSourceID inputSourceID: String, includeAllInstalled: Bool = false) -> Array<InputSource> {
+    public func findInputSources(havingInputSourceID inputSourceID: String, includeAllInstalled: Bool) -> Array<InputSource> {
         
         let properties = [kTISPropertyInputSourceID : inputSourceID]
         
-        return inputSources(withProperties: properties as CFDictionary, includeAllInstalled: includeAllInstalled)
+        return findInputSources(withProperties: properties as CFDictionary, includeAllInstalled: includeAllInstalled)
     }
 
-    public func inputSources(havingLocalizedName localizedName: String, includeAllInstalled: Bool = false) -> Array<InputSource> {
+    public func findInputSources(havingLocalizedName localizedName: String, includeAllInstalled: Bool) -> Array<InputSource> {
         
         let properties = [kTISPropertyLocalizedName : localizedName]
         
-        return inputSources(withProperties: properties as CFDictionary, includeAllInstalled: includeAllInstalled)
+        return findInputSources(withProperties: properties as CFDictionary, includeAllInstalled: includeAllInstalled)
     }
     
     public var currentInputSource: InputSource {
@@ -60,7 +65,7 @@ open class InputMethod {
 
 private extension InputMethod {
     
-    func inputSources(withProperties properties: CFDictionary!, includeAllInstalled: Bool = false) -> Array<InputSource> {
+    func findInputSources(withProperties properties: CFDictionary!, includeAllInstalled: Bool) -> Array<InputSource> {
         
         guard let list = TISCreateInputSourceList(properties, includeAllInstalled) else {
         

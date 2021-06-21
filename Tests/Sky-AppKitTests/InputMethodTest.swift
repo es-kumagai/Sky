@@ -26,7 +26,7 @@ final class InputMethodTests: XCTestCase {
             inputMethod.select(inputSource: reservedInputSource)
         }
         
-        let inputSources = inputMethod.inputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.Japanese", includeAllInstalled: false)
+        let inputSources = inputMethod.findInputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.Japanese", includeAllInstalled: false)
         
         if let inputSource = inputSources.first {
 
@@ -40,7 +40,7 @@ final class InputMethodTests: XCTestCase {
     func testCharacterPaletteIM() throws {
      
         let inputMethod = InputMethod()
-        let inputSources = inputMethod.inputSources(havingInputSourceID: "com.apple.CharacterPaletteIM")
+        let inputSources = inputMethod.findInputSources(havingInputSourceID: "com.apple.CharacterPaletteIM", includeAllInstalled: false)
         
         if let inputSource = inputSources.first {
 
@@ -59,7 +59,7 @@ final class InputMethodTests: XCTestCase {
     func test50onPaletteIM() throws {
      
         let inputMethod = InputMethod()
-        let inputSources = inputMethod.inputSources(havingInputSourceID: "com.apple.50onPaletteIM")
+        let inputSources = inputMethod.findInputSources(havingInputSourceID: "com.apple.50onPaletteIM", includeAllInstalled: false)
         
         if let inputSource = inputSources.first {
 
@@ -78,7 +78,7 @@ final class InputMethodTests: XCTestCase {
     func testKotoeriRoman() throws {
         
         let inputMethod = InputMethod()
-        let inputSources = inputMethod.inputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.RomajiTyping.Roman")
+        let inputSources = inputMethod.findInputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.RomajiTyping.Roman", includeAllInstalled: false)
         
         if let inputSource = inputSources.first {
 
@@ -97,7 +97,7 @@ final class InputMethodTests: XCTestCase {
     func testKotoeriKatakana() throws {
         
         let inputMethod = InputMethod()
-        let inputSources = inputMethod.inputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.RomajiTyping.Katakana")
+        let inputSources = inputMethod.findInputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.RomajiTyping.Katakana", includeAllInstalled: false)
         
         if let inputSource = inputSources.first {
 
@@ -116,7 +116,7 @@ final class InputMethodTests: XCTestCase {
     func testKotoeriHalfWidthKana() throws {
         
         let inputMethod = InputMethod()
-        let inputSources = inputMethod.inputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.RomajiTyping.HalfWidthKana")
+        let inputSources = inputMethod.findInputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.RomajiTyping.HalfWidthKana", includeAllInstalled: false)
         
         if let inputSource = inputSources.first {
 
@@ -135,7 +135,7 @@ final class InputMethodTests: XCTestCase {
     func testKotoeriFullWidthRoman() throws {
         
         let inputMethod = InputMethod()
-        let inputSources = inputMethod.inputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.RomajiTyping.FullWidthRoman")
+        let inputSources = inputMethod.findInputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.RomajiTyping.FullWidthRoman", includeAllInstalled: false)
         
         if let inputSource = inputSources.first {
 
@@ -154,7 +154,7 @@ final class InputMethodTests: XCTestCase {
     func testKotoeriJapanese() throws {
         
         let inputMethod = InputMethod()
-        let inputSources = inputMethod.inputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese")
+        let inputSources = inputMethod.findInputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese", includeAllInstalled: false)
         
         if let inputSource = inputSources.first {
 
@@ -173,7 +173,7 @@ final class InputMethodTests: XCTestCase {
     func testInputSources() throws {
         
         let inputMethod = InputMethod()
-        let inputSources = inputMethod.inputSources()
+        let inputSources = inputMethod.findInputSources(includeAllInstalled: false)
         let reservedInputSource = inputMethod.currentInputSource
         
         defer {
