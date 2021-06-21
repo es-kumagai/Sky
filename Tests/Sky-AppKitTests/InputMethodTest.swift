@@ -49,6 +49,10 @@ final class InputMethodTests: XCTestCase {
             XCTAssertEqual(inputSource.category, "TISCategoryPaletteInputSource")
             XCTAssertEqual(inputSource.type, "TISTypeCharacterPalette")
             XCTAssertEqual(inputSource.languages, ["en"])
+            XCTAssertTrue(inputSource.isASCIICapable)
+            XCTAssertTrue(inputSource.isSelectCapable)
+            XCTAssertTrue(inputSource.isEnableCapable)
+            XCTAssertTrue(inputSource.isEnabled)
         }
     }
     
@@ -64,6 +68,10 @@ final class InputMethodTests: XCTestCase {
             XCTAssertEqual(inputSource.category, "TISCategoryPaletteInputSource")
             XCTAssertEqual(inputSource.type, "TISTypeCharacterPalette")
             XCTAssertEqual(inputSource.languages, ["ja"])
+            XCTAssertFalse(inputSource.isASCIICapable)
+            XCTAssertTrue(inputSource.isSelectCapable)
+            XCTAssertTrue(inputSource.isEnableCapable)
+            XCTAssertTrue(inputSource.isEnabled)
         }
     }
     
@@ -79,6 +87,10 @@ final class InputMethodTests: XCTestCase {
             XCTAssertEqual(inputSource.category, "TISCategoryKeyboardInputSource")
             XCTAssertEqual(inputSource.type, "TISTypeKeyboardInputMode")
             XCTAssertEqual(inputSource.languages, ["en"])
+            XCTAssertTrue(inputSource.isASCIICapable)
+            XCTAssertTrue(inputSource.isSelectCapable)
+            XCTAssertTrue(inputSource.isEnableCapable)
+            XCTAssertTrue(inputSource.isEnabled)
         }
     }
     
@@ -94,9 +106,32 @@ final class InputMethodTests: XCTestCase {
             XCTAssertEqual(inputSource.category, "TISCategoryKeyboardInputSource")
             XCTAssertEqual(inputSource.type, "TISTypeKeyboardInputMode")
             XCTAssertEqual(inputSource.languages, [])
+            XCTAssertTrue(inputSource.isASCIICapable)
+            XCTAssertTrue(inputSource.isSelectCapable)
+            XCTAssertTrue(inputSource.isEnableCapable)
+            XCTAssertTrue(inputSource.isEnabled)
         }
     }
-    
+
+    func testKotoeriHalfWidthKana() throws {
+        
+        let inputMethod = InputMethod()
+        let inputSources = inputMethod.inputSources(havingInputSourceID: "com.apple.inputmethod.Kotoeri.RomajiTyping.HalfWidthKana")
+        
+        if let inputSource = inputSources.first {
+
+            XCTAssertEqual(inputSource.id, "com.apple.inputmethod.Kotoeri.RomajiTyping.HalfWidthKana")
+            XCTAssertEqual(inputSource.localizedName, "半角カタカナ")
+            XCTAssertEqual(inputSource.category, "TISCategoryKeyboardInputSource")
+            XCTAssertEqual(inputSource.type, "TISTypeKeyboardInputMode")
+            XCTAssertEqual(inputSource.languages, [])
+            XCTAssertTrue(inputSource.isASCIICapable)
+            XCTAssertTrue(inputSource.isSelectCapable)
+            XCTAssertTrue(inputSource.isEnableCapable)
+            XCTAssertTrue(inputSource.isEnabled)
+        }
+    }
+
     func testKotoeriFullWidthRoman() throws {
         
         let inputMethod = InputMethod()
@@ -109,6 +144,10 @@ final class InputMethodTests: XCTestCase {
             XCTAssertEqual(inputSource.category, "TISCategoryKeyboardInputSource")
             XCTAssertEqual(inputSource.type, "TISTypeKeyboardInputMode")
             XCTAssertEqual(inputSource.languages, [])
+            XCTAssertTrue(inputSource.isASCIICapable)
+            XCTAssertTrue(inputSource.isSelectCapable)
+            XCTAssertTrue(inputSource.isEnableCapable)
+            XCTAssertTrue(inputSource.isEnabled)
         }
     }
     
@@ -124,6 +163,10 @@ final class InputMethodTests: XCTestCase {
             XCTAssertEqual(inputSource.category, "TISCategoryKeyboardInputSource")
             XCTAssertEqual(inputSource.type, "TISTypeKeyboardInputMode")
             XCTAssertEqual(inputSource.languages, ["ja"])
+            XCTAssertFalse(inputSource.isASCIICapable)
+            XCTAssertTrue(inputSource.isSelectCapable)
+            XCTAssertTrue(inputSource.isEnableCapable)
+            XCTAssertTrue(inputSource.isEnabled)
         }
     }
 
