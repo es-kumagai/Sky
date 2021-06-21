@@ -7,7 +7,7 @@
 
 import Carbon
 
-public final class InputMethod {
+open class InputMethod {
     
     public func inputSources(includeAllInstalled: Bool = false) -> Array<InputSource> {
         
