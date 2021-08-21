@@ -66,6 +66,8 @@ internal extension URLSchemeManager {
 			NSLog("Invalid URL event=\(event), reply=\(replyEvent). ")
 			return
 		}
+        
+        delegate?.urlSchemeManager(self, someURLSchemeDetected: url)
 
 		for scheme in schemes where scheme.matches(url) {
 			
