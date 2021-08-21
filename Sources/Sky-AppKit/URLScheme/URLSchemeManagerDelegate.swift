@@ -21,4 +21,10 @@ public protocol URLSchemeManagerDelegate : AnyObject {
     ///   - manager: The URL scheme manager that detects some `url` scheme.
     ///   - url: The url that was detected by `manager`.
     func urlSchemeManager(_ manager: URLSchemeManager, someURLSchemeDetected url: URL)
+    
+    /// [Sky] Invokes when the handling process did finish by `manager` with `matchingCount`.
+    /// - Parameters:
+    ///   - manager: The manager that executed the handling process.
+    ///   - matchingCount: How many schemes matched a detected url.
+    func urlSchemeManager(_ manager: URLSchemeManager, handlingDidFinishWithMatchingCount matchingCount: Int)
 }

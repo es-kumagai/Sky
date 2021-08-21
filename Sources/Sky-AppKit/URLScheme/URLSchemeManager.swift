@@ -69,10 +69,16 @@ internal extension URLSchemeManager {
         
         delegate?.urlSchemeManager(self, someURLSchemeDetected: url)
 
+        var matchesCount = 0
+        
 		for scheme in schemes where scheme.matches(url) {
-			
+		
+            matchesCount += 1
+            
 			scheme.action(url: url)
             delegate?.urlSchemeManager(self, schemeDidHandle: scheme)
 		}
+        
+        delegate?.urlSchemeManager(self, handlingDidFinishWithMatchingCount: matchesCount)
 	}
 }
