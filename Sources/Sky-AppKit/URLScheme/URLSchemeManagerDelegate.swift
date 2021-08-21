@@ -8,23 +8,24 @@
 import Foundation
 
 /// [Sky] A set of methods you implement in URLSchemeManager to customize the behavior of handling.
-public protocol URLSchemeManagerDelegate : AnyObject {
+@objc(ESURLSchemeManagerDelegate) public protocol URLSchemeManagerDelegate : AnyObject {
     
     /// [Sky] Invokes this method when the `scheme` did handle.
     /// - Parameters:
     ///   - manager: The URL scheme manager that handled `scheme`.
     ///   - scheme: The URL scheme that handled by `manager`.
-    func urlSchemeManager(_ manager: URLSchemeManager, schemeDidHandle scheme: URLScheme.Type)
+    ///   - error: The error if an error occurs during executing `scheme`'s action.
+    @objc optional func urlSchemeManager(_ manager: URLSchemeManager, schemeDidHandle scheme: URLScheme.Type, errorIfOccurs error: Error?)
     
     /// [Sky] Invokes when some `url` scheme detected by URL scheme `manager`.
     /// - Parameters:
     ///   - manager: The URL scheme manager that detects some `url` scheme.
     ///   - url: The url that was detected by `manager`.
-    func urlSchemeManager(_ manager: URLSchemeManager, someURLSchemeDetected url: URL)
+    @objc optional func urlSchemeManager(_ manager: URLSchemeManager, someURLSchemeDetected url: URL)
     
     /// [Sky] Invokes when the handling process did finish by `manager` with `matchingCount`.
     /// - Parameters:
     ///   - manager: The manager that executed the handling process.
     ///   - matchingCount: How many schemes matched a detected url.
-    func urlSchemeManager(_ manager: URLSchemeManager, handlingDidFinishWithMatchingCount matchingCount: Int)
+    @objc optional func urlSchemeManager(_ manager: URLSchemeManager, handlingDidFinishWithMatchingCount matchingCount: Int)
 }

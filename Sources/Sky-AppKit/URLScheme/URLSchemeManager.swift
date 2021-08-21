@@ -9,7 +9,7 @@
 import Cocoa
 
 /// [Sky] An object type that manage handling URL schemes.
-public final class URLSchemeManager {
+@objc(ESURLSchemeManager) public final class URLSchemeManager: NSObject {
     
     /// [Sky] An event manager to be used internally.
 	internal static var eventManager = NSAppleEventManager.shared()
@@ -35,6 +35,8 @@ public final class URLSchemeManager {
         
         self.schemes = schemes
         self.handlingProcessInProgress = false
+        
+        super.init()
         
         Self.setEventHandler(handlingBy: self)
 	}
@@ -73,19 +75,27 @@ internal extension URLSchemeManager {
 		}
         
         handlingProcessInProgress = true
-        delegate?.urlSchemeManager(self, someURLSchemeDetected: url)
+        delegate?.urlSchemeManager?(self, someURLSchemeDetected: url)
 
         var matchesCount = 0
         
 		for scheme in schemes where scheme.matches(url) {
 		
             matchesCount += 1
+
+            do {
+
+                try scheme.action(url: url)
             
-			scheme.action(url: url)
-            delegate?.urlSchemeManager(self, schemeDidHandle: scheme)
+                delegate?.urlSchemeManager?(self, schemeDidHandle: scheme, errorIfOccurs: nil)
+            }
+            catch {
+                
+                delegate?.urlSchemeManager?(self, schemeDidHandle: scheme, errorIfOccurs: error)
+            }
 		}
 
         handlingProcessInProgress = false
-        delegate?.urlSchemeManager(self, handlingDidFinishWithMatchingCount: matchesCount)
+        delegate?.urlSchemeManager?(self, handlingDidFinishWithMatchingCount: matchesCount)
 	}
 }

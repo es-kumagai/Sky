@@ -8,7 +8,7 @@
 import Foundation
 
 /// [Sky] A type expressing a URL scheme.
-public protocol URLScheme {
+@objc(ESURLSchemeProtocol) public protocol URLScheme {
     
     /// [Sky] The scheme part of this URL scheme.
     static var scheme: String { get }
@@ -18,7 +18,8 @@ public protocol URLScheme {
     
     /// [Sky] Execute the process assigned this URL scheme.
     /// - Parameter url: The url that matched this URL scheme.
-    static func action(url: URL)
+    /// - Throws: URLScheme.ActionError
+    static func action(url: URL) throws
 }
 
 extension URLScheme {
