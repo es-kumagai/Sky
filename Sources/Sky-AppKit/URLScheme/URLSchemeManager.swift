@@ -26,11 +26,16 @@ public final class URLSchemeManager {
     /// [Sky] The delegate to customizing behaviors.
     public var delegate: URLSchemeManagerDelegate? = nil
     
+    /// [Sky] Whether the handling process is in progress.
+    public internal(set) var handlingProcessInProgress: Bool
+    
     /// [Sky] Creates an instance to managing URL schemes.
     /// - Parameter schemes: The URL schemes to managing.
     public init(schemes: Array<URLScheme.Type>) {
         
         self.schemes = schemes
+        self.handlingProcessInProgress = false
+        
         Self.setEventHandler(handlingBy: self)
 	}
 	
@@ -67,6 +72,7 @@ internal extension URLSchemeManager {
 			return
 		}
         
+        handlingProcessInProgress = true
         delegate?.urlSchemeManager(self, someURLSchemeDetected: url)
 
         var matchesCount = 0
@@ -78,7 +84,8 @@ internal extension URLSchemeManager {
 			scheme.action(url: url)
             delegate?.urlSchemeManager(self, schemeDidHandle: scheme)
 		}
-        
+
+        handlingProcessInProgress = false
         delegate?.urlSchemeManager(self, handlingDidFinishWithMatchingCount: matchesCount)
 	}
 }
