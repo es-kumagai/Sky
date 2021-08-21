@@ -23,6 +23,9 @@ public final class URLSchemeManager {
     /// [Sky] The URL schemes that handling by this instance.
 	public var schemes: Array<URLScheme.Type>
     
+    /// [Sky] The delegate to customizing behaviors.
+    public var delegate: URLSchemeManagerDelegate? = nil
+    
     /// [Sky] Creates an instance to managing URL schemes.
     /// - Parameter schemes: The URL schemes to managing.
     public init(schemes: Array<URLScheme.Type>) {
@@ -67,6 +70,7 @@ internal extension URLSchemeManager {
 		for scheme in schemes where scheme.matches(url) {
 			
 			scheme.action(url: url)
+            delegate?.urlSchemeManager(self, schemeDidHandle: scheme)
 		}
 	}
 }
