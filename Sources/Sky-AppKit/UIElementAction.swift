@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ApplicationServices
 
 public extension UIElement {
     
