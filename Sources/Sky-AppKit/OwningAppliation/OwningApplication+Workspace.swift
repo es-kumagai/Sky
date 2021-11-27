@@ -15,7 +15,7 @@ public extension NSWorkspace {
         menuBarOwningApplication?.bundleIdentifier == application.identifier
     }
     
-    func isMenuBarOneOfOwningApplications(_ applications: OwningApplication...) -> Bool {
+    func isMenuBarAnyOfOwningApplications(_ applications: OwningApplication...) -> Bool {
 
         guard let bundleIdentifier = menuBarOwningApplication?.bundleIdentifier else {
             
