@@ -1,5 +1,5 @@
 //
-//  File.swift
+//  AppleApplications.swift
 //  
 //
 //  Created by Tomohiro Kumagai on 2021/06/19.
