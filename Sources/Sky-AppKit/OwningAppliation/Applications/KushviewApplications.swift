@@ -7,5 +7,6 @@
 
 public extension OwningApplication {
     
+    /// [Sky] The 'Element' app provided by kushview.
     static let kushviewElement = OwningApplication(identifier: "new.kushview.Element")
 }
