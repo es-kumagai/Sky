@@ -12,6 +12,9 @@ public struct OwningApplication {
     public var identifier: String
 }
 
+/// [Sky] A set of owning applications.
+public typealias OwningApplications = Set<OwningApplication>
+
 extension OwningApplication : CustomDebugStringConvertible {
     
     public var debugDescription: String {
@@ -20,6 +23,6 @@ extension OwningApplication : CustomDebugStringConvertible {
     }
 }
 
-extension OwningApplication : Equatable {
+extension OwningApplication : Hashable {
     
 }
