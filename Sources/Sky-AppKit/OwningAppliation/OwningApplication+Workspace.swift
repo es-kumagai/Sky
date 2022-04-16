@@ -20,13 +20,23 @@ public extension NSWorkspace {
         isMenuBarAnyOfOwningApplications(applications)
     }
 
-    func isMenuBarAnyOfOwningApplications(_ applications: [OwningApplication]) -> Bool {
+    func isMenuBarAnyOfOwningApplications<Applications : Sequence>(_ applications: Applications) -> Bool where Applications.Element == OwningApplication {
         
         guard let bundleIdentifier = menuBarOwningApplication?.bundleIdentifier else {
             
             return false
         }
+
+        return applications.contains { $0.identifier == bundleIdentifier }
+    }
+
+    func isMenuBarAnyOfOwningApplications(_ applications: OwningApplications) -> Bool {
         
-        return applications.meetsAny { $0.identifier == bundleIdentifier }
+        guard let application = menuBarOwningApplication?.bundleIdentifier.map(OwningApplication.init) else {
+            
+            return false
+        }
+        
+        return applications.contains(application)
     }
 }
