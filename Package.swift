@@ -14,6 +14,9 @@ let package = Package(
             name: "Sky",
             targets: ["Sky"]),
         .library(
+            name: "Sky-Base",
+            targets: ["Sky-Base"]),
+        .library(
             name: "Sky-AppKit",
             targets: ["Sky-AppKit"]),
     ],
@@ -27,13 +30,19 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Sky",
-            dependencies: ["Sky-AppKit", "Ocean"]),
+            dependencies: ["Sky-Base", "Sky-AppKit", "Ocean"]),
+        .target(
+            name: "Sky-Base",
+            dependencies: ["Ocean", "Swim"]),
         .target(
             name: "Sky-AppKit",
-            dependencies: ["Ocean", "Swim"]),
+            dependencies: ["Sky-Base", "Ocean", "Swim"]),
         .testTarget(
             name: "SkyTests",
             dependencies: ["Sky"]),
+        .testTarget(
+            name: "Sky-BaseTests",
+            dependencies: ["Sky-Base"]),
         .testTarget(
             name: "Sky-AppKitTests",
             dependencies: ["Sky-AppKit"]),

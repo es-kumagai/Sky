@@ -7,7 +7,7 @@
 //
 
 import AppKit
-import Sky_AppKit
+import Sky_Base
 
 internal final class HUDView : NSView {
 	

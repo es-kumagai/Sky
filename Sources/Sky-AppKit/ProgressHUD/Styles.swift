@@ -7,6 +7,7 @@
 //
 
 import AppKit
+import Sky_Base
 
 extension ProgressHUD {
 	
