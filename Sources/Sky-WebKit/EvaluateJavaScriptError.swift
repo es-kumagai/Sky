@@ -97,7 +97,12 @@ extension EvaluateJavaScriptError: CustomNSError {
     }
     
     public var errorUserInfo: [String: Any] {
-        rawError.userInfo
+        
+        var userInfo = rawError.userInfo
+
+        userInfo[NSLocalizedDescriptionKey] = description
+
+        return userInfo
     }
 }
 
