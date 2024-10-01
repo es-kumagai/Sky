@@ -13,7 +13,7 @@ public struct EvaluateJavaScriptError: LocalizedError {
     
     public let rawError: NSError
     
-    public init(error: NSError) {
+    public init(_ error: NSError) {
         
         guard error.domain == Self.errorDomain else {
             fatalError("Unexpected error domain: \(error.domain)")
@@ -22,6 +22,10 @@ public struct EvaluateJavaScriptError: LocalizedError {
         rawError = error
     }
     
+    public init(_ error: some Error) {
+        self.init(error as NSError)
+    }
+
     @StringConcat
     public var exceptionLineNumber: String {
         
@@ -63,22 +67,22 @@ public struct EvaluateJavaScriptError: LocalizedError {
     @StringConcat
     public var errorDescription: String? {
         
-        switch rawError.domain {
-            
-        case Self.errorDomain:
-            rawError.localizedDescription
-            ":"
-            exceptionLineNumber
-            ":"
-            exceptionColumnNumber
-            ":"
-            exceptionSourcePath
-            ":"
-            exceptionMessage
-            
-        default:
-            rawError.localizedDescription
-        }
+        rawError.localizedDescription
+        ":"
+        exceptionLineNumber
+        ":"
+        exceptionColumnNumber
+        ":"
+        exceptionSourcePath
+        ":"
+        exceptionMessage
+    }
+}
+
+extension EvaluateJavaScriptError: CustomStringConvertible {
+
+    public var description: String {
+        localizedDescription
     }
 }
 
