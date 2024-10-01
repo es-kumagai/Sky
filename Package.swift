@@ -19,6 +19,9 @@ let package = Package(
         .library(
             name: "Sky-AppKit",
             targets: ["Sky-AppKit"]),
+        .library(
+            name: "Sky-JavaScriptCore",
+            targets: ["Sky-JavaScriptCore"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -30,13 +33,19 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "Sky",
-            dependencies: ["Sky-Base", "Sky-AppKit", "Ocean"]),
+            dependencies: ["Sky-Base", "Sky-AppKit", "Sky-JavaScriptCore", "Sky-WebKit", "Ocean"]),
         .target(
             name: "Sky-Base",
             dependencies: ["Ocean", "Swim"]),
         .target(
             name: "Sky-AppKit",
             dependencies: ["Sky-Base", "Ocean", "Swim"]),
+        .target(
+            name: "Sky-JavaScriptCore",
+            dependencies: []),
+        .target(
+            name: "Sky-WebKit",
+            dependencies: ["Swim"]),
         .testTarget(
             name: "SkyTests",
             dependencies: ["Sky"]),
@@ -46,6 +55,12 @@ let package = Package(
         .testTarget(
             name: "Sky-AppKitTests",
             dependencies: ["Sky-AppKit"]),
+        .testTarget(
+            name: "Sky-JavaScriptCoreTests",
+            dependencies: ["Sky-JavaScriptCore"]),
+        .testTarget(
+            name: "Sky-WebKitTests",
+            dependencies: ["Sky-WebKit"]),
     ],
     swiftLanguageModes: [.v6]
 )

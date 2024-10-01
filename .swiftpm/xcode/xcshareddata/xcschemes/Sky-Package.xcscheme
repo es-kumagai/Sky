@@ -90,6 +90,20 @@
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Sky-JavaScriptCore"
+               BuildableName = "Sky-JavaScriptCore"
+               BlueprintName = "Sky-JavaScriptCore"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -135,6 +149,26 @@
                BlueprintIdentifier = "Sky-BaseTests"
                BuildableName = "Sky-BaseTests"
                BlueprintName = "Sky-BaseTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Sky-JavaScriptCoreTests"
+               BuildableName = "Sky-JavaScriptCoreTests"
+               BlueprintName = "Sky-JavaScriptCoreTests"
+               ReferencedContainer = "container:">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "Sky-WebKitTests"
+               BuildableName = "Sky-WebKitTests"
+               BlueprintName = "Sky-WebKitTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
