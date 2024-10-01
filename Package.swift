@@ -22,6 +22,9 @@ let package = Package(
         .library(
             name: "Sky-JavaScriptCore",
             targets: ["Sky-JavaScriptCore"]),
+        .library(
+            name: "Sky-MapKit",
+            targets: ["Sky-MapKit"]),
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
