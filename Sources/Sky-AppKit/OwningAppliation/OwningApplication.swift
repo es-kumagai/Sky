@@ -6,10 +6,10 @@
 //
 
 /// [Sky] An owning application that expressed by a bundle identifier.
-public struct OwningApplication {
+public struct OwningApplication: Sendable {
     
     /// [Sky] The bundle identifier of this instance.
-    public var identifier: String
+    public let identifier: String
 }
 
 /// [Sky] A set of owning applications.

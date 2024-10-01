@@ -42,7 +42,7 @@ extension CGRect {
 
 // MARK: - Scaleable & Truncateable
 
-extension CGRect : Scalable, Truncatable {
+extension CGRect : @retroactive Scalable, Truncatable {
 	
 	public func scaled(by scale: CGScale) -> CGRect {
 		

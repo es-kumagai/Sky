@@ -9,6 +9,7 @@
 import AppKit
 import Ocean
 
+@MainActor
 public final class ProgressHUD : HUDImplementation {
 
 	internal weak var hudView: HUDView?

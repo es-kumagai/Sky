@@ -11,7 +11,7 @@ import Ocean
 
 // MARK: - Scaleable & Truncateable
 
-extension CGPoint : Scalable, Truncatable {
+extension CGPoint : @retroactive Scalable, Truncatable {
 	
 	public func scaled(by scale: CGScale) -> CGPoint {
 		

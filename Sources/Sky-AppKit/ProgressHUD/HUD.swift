@@ -8,6 +8,7 @@
 
 public typealias DismissHandler = (ProgressHUD) -> Void
 
+@MainActor
 public protocol HUDImplementation : AnyObject {
 	
 	associatedtype View

@@ -10,5 +10,6 @@ import AppKit
 
 extension ProgressHUD.Theme {
     
+    nonisolated(unsafe)
     public static let basic: ProgressHUD.Theme = ProgressHUD.Theme(textColor: NSColor.black, backgroundColor: NSColor(white: 0.8, alpha: 0.90))
 }

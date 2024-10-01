@@ -11,7 +11,7 @@ import Ocean
 
 // MARK: - Scaleable & Truncateable
 
-extension CGFloat : ScaleType {
+extension CGFloat : @retroactive ScaleType {
 
     public var value: CGFloat {
         
@@ -24,7 +24,7 @@ extension CGFloat : ScaleType {
     }
 }
 
-extension CGFloat : Scalable {
+extension CGFloat : @retroactive Scalable {
 
     public func scaled(by scale: CGScale) -> CGFloat {
         
@@ -33,7 +33,7 @@ extension CGFloat : Scalable {
 }
 
 extension CGFloat : Truncatable {}
-extension CGFloat : Dividable {}
+extension CGFloat : @retroactive Dividable {}
 
 extension CGFloat {
 

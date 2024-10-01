@@ -12,6 +12,7 @@ import Cocoa
 @objc(ESURLSchemeManager) public final class URLSchemeManager: NSObject {
     
     /// [Sky] An event manager to be used internally.
+    nonisolated(unsafe)
 	internal static var eventManager = NSAppleEventManager.shared()
     
     /// [Sky] The class information to handling events.

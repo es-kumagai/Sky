@@ -11,7 +11,7 @@ import Ocean
 
 // MARK: - Scaleable & Truncateable
 
-extension CGSize : Scalable, Truncatable {
+extension CGSize : @retroactive Scalable, Truncatable {
 	
 	public func scaled(by scale: CGScale) -> CGSize {
 		

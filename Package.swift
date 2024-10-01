@@ -1,4 +1,4 @@
-// swift-tools-version:5.3
+// swift-tools-version:6.0
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "Sky",
     platforms: [
-        .macOS(.v11)
+        .macOS(.v13)
     ],
     products: [
         // Products define the executables and libraries produced by a package, and make them visible to other packages.
@@ -22,8 +22,8 @@ let package = Package(
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/es-kumagai/Swim", .branch("main")),
-        .package(url: "https://github.com/es-kumagai/Ocean", .branch("master")),
+        .package(url: "https://github.com/es-kumagai/Swim", from: "0.2.7"),
+        .package(url: "https://github.com/es-kumagai/Ocean", from: "0.3.2"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -47,5 +47,5 @@ let package = Package(
             name: "Sky-AppKitTests",
             dependencies: ["Sky-AppKit"]),
     ],
-    swiftLanguageVersions: [.v5]
+    swiftLanguageModes: [.v6]
 )

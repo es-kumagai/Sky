@@ -10,7 +10,7 @@ import AppKit
 import Ocean
 import Sky_Base
 
-extension NSWindow : HavingScale {
+extension NSWindow : @retroactive @preconcurrency HavingScale {
     
     public var scale: CGScale {
         
@@ -18,7 +18,7 @@ extension NSWindow : HavingScale {
     }
 }
 
-extension NSView : HavingScale {
+extension NSView : @retroactive @preconcurrency HavingScale {
     
     public var scale: CGScale {
         
