@@ -9,7 +9,7 @@
 import Foundation
 import Swim
 
-public struct EvaluateJavaScriptError: LocalizedError {
+public struct EvaluateJavaScriptError: CustomNSError {
     
     public let rawError: NSError
     
@@ -63,31 +63,7 @@ public struct EvaluateJavaScriptError: LocalizedError {
             "Unkown error."
         }
     }
-    
-    @StringConcat
-    public var errorDescription: String? {
-        
-        rawError.localizedDescription
-        ":"
-        exceptionLineNumber
-        ":"
-        exceptionColumnNumber
-        ":"
-        exceptionSourcePath
-        ":"
-        exceptionMessage
-    }
-}
 
-extension EvaluateJavaScriptError: CustomStringConvertible {
-
-    public var description: String {
-        localizedDescription
-    }
-}
-
-extension EvaluateJavaScriptError: CustomNSError {
-    
     public static var errorDomain: String {
         "WKErrorDomain"
     }
@@ -103,6 +79,23 @@ extension EvaluateJavaScriptError: CustomNSError {
         userInfo[NSLocalizedDescriptionKey] = description
 
         return userInfo
+    }
+}
+
+extension EvaluateJavaScriptError: CustomStringConvertible {
+
+    @StringConcat
+    public var description: String {
+
+        rawError.localizedDescription
+        ":"
+        exceptionLineNumber
+        ":"
+        exceptionColumnNumber
+        ":"
+        exceptionSourcePath
+        ":"
+        exceptionMessage
     }
 }
 
